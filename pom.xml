@@ -3,21 +3,29 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>DynamicTomcat</groupId>
+    <groupId>com.example</groupId> <!-- Consider using a reverse domain naming convention -->
     <artifactId>DynamicTomcat</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging> <!-- Specify WAR packaging -->
 
+    <properties>
+        <maven.compiler.source>21</maven.compiler.source> <!-- Specify source version -->
+        <maven.compiler.target>21</maven.compiler.target> <!-- Specify target version -->
+    </properties>
+
     <build>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId> <!-- Specify group ID -->
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <release>21</release>
+                    <source>${maven.compiler.source}</source> <!-- Use properties for source -->
+                    <target>${maven.compiler.target}</target> <!-- Use properties for target -->
                 </configuration>
             </plugin>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId> <!-- Specify group ID -->
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.3.1</version> <!-- Specify version of the WAR plugin -->
                 <configuration>
